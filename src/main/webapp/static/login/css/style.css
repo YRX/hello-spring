@@ -45,6 +45,19 @@ body {
 	margin: auto;
 	padding: 6px 12px 6px 12px;
 }
+
+.login table {
+	border: none;
+	background: #fff;
+	font-family:Lato ;
+	font-weight:700 ;
+	display: block;
+	height: 40px;
+	outline: none;
+	width: calc(100% - 24px) ;
+	margin: auto;
+	padding: 6px 12px 6px 12px;
+}
 .bar {
 	width: 100%;
 	height: 1px;

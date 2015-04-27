@@ -21,17 +21,20 @@
 
 <body>
 
-  <form class="login" id="loginData" method="post">
-		<div class="avatar">
-      		<img src="${logoURL}">
-		</div>
-		<input type="text" name="username" placeholder="username" required>
-		<div class="bar">
-			<i></i>
-		</div>
-		<input type="password" name="password" placeholder="password" required>
-		<button onclick="submitForm()" >Sign Up</button>
-  </form>
+  <div class="login">
+	  <table>
+		  <tr>
+			  <td>${user.username}</td>
+		  </tr>
+		  <tr>
+			  <td>${user.password}</td>
+		  </tr>
+		  <tr>
+			  <td>${error}</td>
+		  </tr>
+	  </table>
+
+  </div>
 
   <script src="${jsURL}"></script>
 
