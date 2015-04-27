@@ -25,7 +25,7 @@
         <property name="configLocation" value="classpath:spring/dao/mybatis-config.xml" />
         <property name="typeAliasesPackage" value="com.springapp.mvc.domain"/>
     </bean>
-    <!--persistence are configured here-->
+    <!--where to find mapper-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.springapp.mvc.persistence" />
     </bean>
