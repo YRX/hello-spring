@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springapp.mvc.persistence.UserMapper">
+
+    <cache />
+
+    <select id="getUserByName" parameterType="string" resultType="User">
+        SELECT
+        user_name as username, user_pwd as password
+        FROM users
+        WHERE user_name = #{username}
+        LIMIT 1
+    </select>
+
+    <insert id="insertUser" parameterType="User">
+        INSERT INTO users
+        VALUES (NULL, #{username}, #{password})
+    </insert>
+
+</mapper>
