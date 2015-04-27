@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by steven on 4/24/15.
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller()
 public class SimpleController {
     @RequestMapping("/")
-    public  String simple(){
-        return "login";
+    public ModelAndView simple(){
+        return new ModelAndView("redirect:" + "/login");
+
     }
 }

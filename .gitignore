@@ -3,3 +3,4 @@ hello-spring.iml
 target/
 *.class
 .DS_Store
+logs/
