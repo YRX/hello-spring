@@ -28,6 +28,7 @@ public class RegistrationAop {
 
 
 
+
     @AfterReturning("postRegistration(user, result, model)")
     public void keepRecordOfLogin(User user, BindingResult result, ModelMap model){
         logger.info("User [" + user.getUsername() + "] logged in.");
