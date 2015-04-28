@@ -3,12 +3,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.springapp.mvc.persistence.UserMapper">
+    <resultMap id="userMapperResult" type="com.springapp.mvc.domain.beans.User">
+        <!--<id column="user_id" property="id" jdbcType="INTEGER"/>-->
+        <result column="user_name" property="username" jdbcType="VARCHAR"/>
+        <result column="user_pwd" property="password" jdbcType="VARCHAR"/>
+    </resultMap>
 
-    <cache />
-
-    <select id="getUserByName" parameterType="string" resultType="User">
+    <select id="getUserByName" parameterType="string" resultMap="userMapperResult">
         SELECT
-        user_name as username, user_pwd as password
+        user_name, user_pwd
         FROM users
         WHERE user_name = #{username}
         LIMIT 1

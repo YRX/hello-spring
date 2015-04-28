@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
         >
 
-    <!--mysql configuration-->
+    <!--数据源的配置，这里是MySql-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true" />
@@ -12,12 +12,13 @@
         <property name="password" value="root" />
     </bean>
 
+    <!--配置事务管理器-->
     <tx:annotation-driven transaction-manager="transactionManager" />
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <!--setting up MyBatis with Spring needs at least two thing.-->
+    <!--配置MyBatis需要的两个元素.-->
     <!--1. sqlSessionFactoryBean-->
     <!--2. a mapper class-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -25,12 +26,13 @@
         <property name="configLocation" value="classpath:spring/dao/mybatis-config.xml" />
         <property name="typeAliasesPackage" value="com.springapp.mvc.domain"/>
     </bean>
-    <!--where to find mapper-->
+    <!--扫描mapper-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.springapp.mvc.persistence" />
     </bean>
 
-    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+    <!--定义sqlSessionTemplate-->
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSessionFactory" />
     </bean>
 

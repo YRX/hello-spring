@@ -7,7 +7,6 @@
     </settings>
 
     <mappers>
-        <!-- hotel-admin -->
         <mapper resource="spring/dao/mapper/user-mapper.xml"/>
     </mappers>
 </configuration>

@@ -5,6 +5,7 @@
 
 	<display-name>Spring MVC Hello World!</display-name>
 
+	<!--Root Application Context的配置文件地点, 初始化的组件供所有servlet和filter使用-->
 	<context-param>
 		<param-name>log4jConfigLocation</param-name>
 		<param-value>file:/Users/steven/workplace/meituan/hotel/hello-spring/src/main/resources/log4j.properties</param-value>
@@ -16,7 +17,7 @@
 	</context-param>
 
 
-	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<!--Listener 读取上面的配置文件，初始化对应组件 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -29,11 +30,12 @@
 	<filter>
 		<filter-name>loginFilter</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-		<!--indicate the filter class-->
+		<!--指明是谁具体实现 javax.servlet.Filter-->
 		<init-param>
 			<param-name>targetBeanName</param-name>
 			<param-value>loginFilter</param-value>
 		</init-param>
+		<!--委托Spring管理该bean-->
 		<init-param>
 			<param-name>targetFilterLifecycle</param-name>
 			<param-value>true</param-value>
@@ -47,12 +49,13 @@
 
 
 
-	<!--Handlering Spring request, initialize web application context( Controller etc.)-->
+	<!--定义一个Web Application Context（servlet context）-->
     <servlet>
 		<servlet-name>simpledispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
+			<!--配置文件地点-->
 			<param-value>classpath*:view-servlet.xml</param-value>
 		</init-param>
         <load-on-startup>1</load-on-startup>
