@@ -13,5 +13,3 @@ This simple application will demonstrate the integration of some tools Meituan i
 
 [My Blog Link](http://wiki.sankuai.com/pages/viewpage.action?pageId=189475129)
 
-#ScreenShot
-![screenshot](http://postimg.org/image/6gqjn7ay5)
